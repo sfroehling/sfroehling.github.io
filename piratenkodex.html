@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Der Piraten-Kodex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Updated Google Fonts link: Replaced 'Oi' with 'Pirata One' for the headlines -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Pirata+One&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            background-color: #3d2c1d;
+            background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
+            font-family: 'Merriweather', serif;
+            color: #4a2c2a;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Parchment Container for the main content */
+        .parchment-container {
+            background: #fdf5e6;
+            background-image: 
+                linear-gradient(rgba(210, 180, 140, 0.2) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(210, 180, 140, 0.2) 2px, transparent 2px),
+                radial-gradient(circle at 100% 0, rgba(0,0,0,0.2), transparent 40%),
+                radial-gradient(circle at 0% 100%, rgba(0,0,0,0.2), transparent 40%);
+            background-size: 30px 30px, 30px 30px, 100% 100%, 100% 100%;
+            border: 2px solid #5C4033;
+            padding: 40px 50px;
+            margin: 20px auto;
+            max-width: 900px;
+            width: 100%;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Simulating torn edges with pseudo-elements */
+        .parchment-container::before, .parchment-container::after {
+            content: '';
+            position: absolute;
+            left: -20px;
+            right: -20px;
+            height: 30px;
+            background: linear-gradient(135deg, transparent 20px, #fdf5e6 20px), linear-gradient(-135deg, transparent 20px, #fdf5e6 20px);
+            background-repeat: repeat-x;
+            background-size: 40px 100%;
+        }
+
+        .parchment-container::before {
+            top: -15px;
+        }
+
+        .parchment-container::after {
+            bottom: -15px;
+            transform: rotate(180deg);
+        }
+
+        /* Main Title - Font changed to 'Pirata One' */
+        h1 {
+            font-family: 'Pirata One', cursive;
+            font-size: clamp(3rem, 10vw, 5.5rem); /* Slightly adjusted size for the new font */
+            color: #a02a2a;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.4);
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+        }
+
+        /* Jolly Roger Icon */
+        .jolly-roger {
+            font-size: clamp(4rem, 10vw, 6rem);
+            margin-bottom: 10px;
+            animation: bobbing 3s ease-in-out infinite;
+        }
+        
+        @keyframes bobbing {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Rules Grid Layout */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        /* Individual Rule Item Styling */
+        .rule-item {
+            padding: 20px;
+            background-color: rgba(210, 180, 140, 0.15);
+            border: 1px solid transparent;
+            border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3Epath%7Bstroke:%238B4513;stroke-width:2;stroke-dasharray: 8 4;%7D%3C/style%3E%3Cpath d='M0 5 L100 5' /%3E%3Cpath d='M0 95 L100 95' /%3E%3Cpath d='M5 0 L5 100' /%3E%3Cpath d='M95 0 L95 100' /%3E%3C/svg%3E") 5;
+            border-radius: 3px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .rule-item:hover {
+            transform: translateY(-5px) rotate(1deg);
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Rule Title - Font changed to 'Pirata One' */
+        .rule-item h2 {
+            font-family: 'Pirata One', cursive;
+            font-size: 2rem; /* Adjusted size */
+            color: #5C4033;
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #D2691E;
+        }
+
+        /* Rule Description - Inherits the body font 'Merriweather' */
+        .rule-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        /* Highlighting text with strong tag */
+        .rule-item strong {
+            color: #a02a2a;
+            font-weight: 700; 
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="parchment-container">
+        <div class="jolly-roger">☠️</div>
+        <h1>Der Piraten-Kodex</h1>
+        
+        <div class="rules-grid">
+
+            <div class="rule-item">
+                <h2>1. Der Kapt'n hat immer recht.</h2>
+                <p>Wenn er doch mal unrecht hat, siehe Regel 2.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>2. Der Kapt'n hat trotzdem recht.</h2>
+                <p>Widerspruch kostet einen Kurzen. Widerrede mit Handbewegung = <strong>doppelte Strafe</strong>. Prost.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>3. Schnaps oder Strafe.</h2>
+                <p>Wer einen Auftrag verweigert, muss trinken. Wer fragt "Was ist das für ein Schnaps?" trinkt zwei.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>4. Wer furzt, der stürzt.</h2>
+                <p>Selbstkontrolle ist Ehrensache. Wer hörbar die Kanonen feuert, leert sein Glas. Ohne Diskussion.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>5. Telefonieren mit der Braut ist Hochverrat.</h2>
+                <p>Wird der Bräutigam bei Kontaktaufnahme mit seiner Zukünftigen erwischt: <strong>1 Strafshot + 3 Minuten laut "My Heart Will Go On" singen.</strong></p>
+            </div>
+            
+            <div class="rule-item">
+                <h2>6. Verlieren ist kein Verbrechen. Nüchtern bleiben schon.</h2>
+                <p>Letzter bei Spielen, Rätseln oder Aufgaben? Trinkpflicht. Und zwar so lange, bis du wieder überzeugend piratig aussiehst.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>7. Wer pinkelt, trinkt.</h2>
+                <p>Jeder Toilettengang kostet einen Strafschluck – nur die erste Runde ist frei. Ja, auch du, Blasenschwächling.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>8. Selbstanzeige bei Kater-Gesicht.</h2>
+                <p>Sieht jemand aus wie der Tod auf Halbmast, muss er sich freiwillig melden und einen Shot zur Gesichtsrettung trinken. Verweigert er: <strong>Doppelte Dosis</strong>.</p>
+            </div>
+            
+            <div class="rule-item">
+                <h2>9. Wer "Ich kann nicht mehr" sagt, muss tanzen.</h2>
+                <p>Mit vollem Körpereinsatz. Barfuß. Zur Musik, die die Crew auswählt.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>10. Wer pupst und es nicht zugibt, muss den Geruch verdienen.</h2>
+                <p>Verdächtige(r) schnüffelt freiwillig am Nächsten. Falsche Anschuldigung = Shot. Richtiger Treffer = Applaus.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>11. Heiratsfluch</h2>
+                <p>Der Bräutigam darf willkürlich „Ich verfluche dich zur Ehe!“ rufen – der Verfluchte muss trinken und einen Toast auf die Freiheit sagen.</p>
+            </div>
+            
+            <div class="rule-item">
+                <h2>12. Skorbut-Regel</h2>
+                <p>Wer vergisst, Wasser zu trinken, bekommt vom Schiffsarzt (bestimmt ihr vorher) einen Zitrus-Shot – „gegen Skorbut“. 👉 Der Schiffsarzt darf auch völlig unangemessen Diagnosen stellen („Du hustest – du brauchst Rum!“).</p>
+            </div>
+            
+            <div class="rule-item">
+                <h2>13. Flachwitze = Flachschuss.</h2>
+                <p>Erzählt jemand einen Dad Joke, müssen alle mitlachen – oder trinken. Ist der Witz so schlecht, dass er weh tut? <strong>Erzähler trinkt selbst</strong>. Und zwar mit Ansage: „Ich bereue nichts!“</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>14. Wer seinen Rum verschüttet, wird verflucht.</h2>
+                <p>Rum ist heilig. Verschütten = <strong>1 Strafminute unter dem Tisch</strong>. Mit einem Teelöffel in der Hand. Für was? Niemand weiß es. Ritual ist Ritual.</p>
+            </div>
+            
+            <div class="rule-item">
+                <h2>15. Wer sich übergeben muss, darf’s nicht heimlich tun.</h2>
+                <p>Kotzen in Würde = mit Ansage, mit Crew-Applaus, mit Nachbesprechung. Heimliches Reiern führt zu: Klogang unter Aufsicht + Namensänderung auf „<strong>Speibeard</strong>“.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>16. Rum ist niemals leer – er wurde nur entführt.</h2>
+                <p>Leere Flasche = gemeinsame Schweigeminute. Dann: Schuldigen finden. Der Schuldige hält eine Trauerrede auf den Rum, trinkt einen Shot... aus der Flasche. Mit Träne im Auge.</p>
+            </div>
+
+            <div class="rule-item">
+                <h2>17. Das Codewort ist: „Ahoi, du geile Landratte!“</h2>
+                <p>Jedes Mal, wenn jemand das Codewort vergisst, wird er offiziell „<strong>Captain Zensur</strong>“ genannt – und trinkt, bis er’s sich merkt. Auf Kommando wiederholen inklusive.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
